@@ -135,7 +135,15 @@ const QuizComponent = ({
     return () => clearInterval(timerInterval);
   }, [timer, isGameOver]);
 
+  useEffect(() => {
+    if (answerStatus !== null) {
+      console.log(answerStatus);
+    }
+  }, [answerStatus]);
+
   const handleAnswer = () => {
+    if (answerStatus !== null || isGameOver) return; // Prevent repeated execution
+
     const currentQuestion = questionList[currentQuestionIndex];
 
     // Update points based on answer correctness
@@ -237,7 +245,14 @@ const QuizComponent = ({
 
       <div className="feedback-box mt-4">
         <p style={{ color: '#dbeef3' }}>Time Remaining: {timer}s</p>
-        {!answerStatus && <p>{answerStatus}</p>}
+        {answerStatus && (
+          <p
+            style={{
+              color: answerStatus === 'Correct!' ? 'green' : 'red',
+            }}>
+            {answerStatus}
+          </p>
+        )}
       </div>
 
       <div className="controls mt-4">
