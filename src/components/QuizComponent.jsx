@@ -3,114 +3,109 @@ import React, { useState, useEffect } from 'react';
 // Sample question set
 const questionList = [
   {
-    question: 'What is 2 + 2?',
-    options: ['3', '4', '5', '6'],
-    answer: '4',
+    question:
+      'What comes once in a minute, twice in a moment, but never in a thousand years?',
+    options: ['The letter M', 'The number 1', 'A second', 'A star'],
+    answer: 'The letter M',
   },
   {
-    question: 'What is the capital of England?',
-    options: ['London', 'Paris', 'Berlin', 'Rome'],
-    answer: 'London',
+    question:
+      'I am not alive, but I grow; I don’t have lungs, but I need air; I don’t have a mouth, but water kills me. What am I?',
+    options: ['Fire', 'Plant', 'Cloud', 'Wind'],
+    answer: 'Fire',
   },
   {
-    question: 'Which planet is closest to the sun?',
-    options: ['Earth', 'Venus', 'Mercury', 'Mars'],
-    answer: 'Mercury',
+    question: 'The more you take, the more you leave behind. What am I?',
+    options: ['Footsteps', 'Time', 'Memories', 'Mist'],
+    answer: 'Footsteps',
   },
   {
-    question: 'What is the color of the sky on a clear day?',
-    options: ['Red', 'Blue', 'Green', 'Yellow'],
-    answer: 'Blue',
+    question:
+      'I am always hungry, I must always be fed. The finger I touch, will soon turn red. What am I?',
+    options: ['Fire', 'A lion', 'A plant', 'A virus'],
+    answer: 'Fire',
   },
   {
-    question: 'Which animal is known as the King of the Jungle?',
-    options: ['Tiger', 'Elephant', 'Lion', 'Bear'],
-    answer: 'Lion',
+    question: 'What has keys but can’t open locks?',
+    options: ['Piano', 'Map', 'Keyboard', 'Luggage'],
+    answer: 'Piano',
   },
   {
-    question: 'What is the largest ocean on Earth?',
-    options: ['Atlantic', 'Indian', 'Arctic', 'Pacific'],
-    answer: 'Pacific',
+    question: 'What can travel around the world while staying in the corner?',
+    options: ['Stamp', 'Sun', 'Cloud', 'Postcard'],
+    answer: 'Stamp',
   },
   {
-    question: 'What is the hardest natural substance on Earth?',
-    options: ['Gold', 'Diamond', 'Iron', 'Silver'],
-    answer: 'Diamond',
+    question:
+      'I have cities, but no houses. I have forests, but no trees. I have rivers, but no water. What am I?',
+    options: ['Map', 'Picture', 'Globe', 'Toy'],
+    answer: 'Map',
   },
   {
-    question: "Who wrote the play 'Romeo and Juliet'?",
-    options: ['Shakespeare', 'Dickens', 'Hemingway', 'Austen'],
-    answer: 'Shakespeare',
+    question: 'What is so fragile that saying its name breaks it?',
+    options: ['Silence', 'Glass', 'Ice', 'Dream'],
+    answer: 'Silence',
   },
   {
-    question: 'What is the square root of 64?',
-    options: ['6', '7', '8', '9'],
-    answer: '8',
+    question: 'The more you have of it, the less you see. What is it?',
+    options: ['Darkness', 'Time', 'Money', 'Cloud'],
+    answer: 'Darkness',
   },
   {
-    question: 'Which country is known as the Land of the Rising Sun?',
-    options: ['China', 'South Korea', 'Japan', 'India'],
-    answer: 'Japan',
+    question: 'What comes down but never goes up?',
+    options: ['Rain', 'Age', 'Snow', 'Sun'],
+    answer: 'Rain',
   },
   {
-    question: 'What is the boiling point of water in Celsius?',
-    options: ['90°C', '100°C', '110°C', '120°C'],
-    answer: '100°C',
+    question: 'What can be broken but never held?',
+    options: ['Promise', 'Glass', 'Heart', 'Law'],
+    answer: 'Promise',
   },
   {
-    question: 'In what year did the Titanic sink?',
-    options: ['1900', '1912', '1920', '1930'],
-    answer: '1912',
+    question: 'What is full of holes but still holds a lot of weight?',
+    options: ['Sieve', 'Spaghetti', 'Cheese', 'Air'],
+    answer: 'Sieve',
   },
   {
-    question: 'What is the formula for water?',
-    options: ['H2O', 'CO2', 'O2', 'H2'],
-    answer: 'H2O',
+    question: 'What has a head, a tail, but no body?',
+    options: ['Coin', 'Snake', 'Bottle', 'Ring'],
+    answer: 'Coin',
   },
   {
-    question: "What element does 'O' represent on the periodic table?",
-    options: ['Oxygen', 'Osmium', 'Ozone', 'Opium'],
-    answer: 'Oxygen',
+    question: 'I’m tall when I’m young, and I’m short when I’m old. What am I?',
+    options: ['Candle', 'Tree', 'Mountain', 'Person'],
+    answer: 'Candle',
   },
   {
-    question: 'What is the longest river in the world?',
-    options: ['Amazon', 'Nile', 'Yangtze', 'Mississippi'],
-    answer: 'Nile',
+    question: 'What gets wetter the more it dries?',
+    options: ['Towel', 'Sponger', 'Ice', 'Air'],
+    answer: 'Towel',
   },
   {
-    question: 'Which famous scientist developed the theory of relativity?',
-    options: [
-      'Isaac Newton',
-      'Galileo Galilei',
-      'Albert Einstein',
-      'Nikola Tesla',
-    ],
-    answer: 'Albert Einstein',
+    question: 'What can you catch but not throw?',
+    options: ['Cold', 'Ball', 'Wind', 'Laughter'],
+    answer: 'Cold',
   },
   {
-    question: 'What is the capital city of Australia?',
-    options: ['Sydney', 'Melbourne', 'Brisbane', 'Canberra'],
-    answer: 'Canberra',
+    question: 'What is always in front of you but can’t be seen?',
+    options: ['Future', 'Wind', 'Time', 'Light'],
+    answer: 'Future',
   },
   {
-    question: 'Who painted the Mona Lisa?',
-    options: [
-      'Pablo Picasso',
-      'Vincent van Gogh',
-      'Leonardo da Vinci',
-      'Claude Monet',
-    ],
-    answer: 'Leonardo da Vinci',
+    question: 'What has an eye but cannot see?',
+    options: ['Needle', 'Storm', 'Coin', 'Potato'],
+    answer: 'Needle',
   },
   {
-    question: 'Which language is the most spoken in the world?',
-    options: ['English', 'Mandarin', 'Spanish', 'Arabic'],
-    answer: 'Mandarin',
+    question: 'What begins with T, ends with T, and has T in it?',
+    options: ['Teapot', 'Tooth', 'Tent', 'Ticket'],
+    answer: 'Teapot',
   },
   {
-    question: 'What is the capital of Canada?',
-    options: ['Toronto', 'Ottawa', 'Vancouver', 'Montreal'],
-    answer: 'Ottawa',
+    question:
+      'I am taken before you can see me, but I am only truly seen after I’m taken. What am I?',
+    options: ['Photo', 'Breeze', 'Sight', 'Breath'],
+    answer: 'Photo',
   },
 ];
 
@@ -208,23 +203,23 @@ const QuizComponent = ({
   }
 
   return (
-    <div className="quiz-container text-white text-xl w-10/12">
-      <h2 className="text-3xl text-orange-500">
-        Question {currentQuestionIndex + 1}
+    <div className="quiz-container text-xl w-10/12">
+      <h2 style={{ color: '#2d8a9b' }} className="text-3xl limelight-regular ">
+        Question <span className="qNumber"> {currentQuestionIndex + 1} </span>
       </h2>
 
-      <div className="score-box text-white mb-4">
+      <div className="score-box text-white mb-4 tinos-regular ">
         <p>
           <strong>Score: </strong>
-          {userPoints}
+          <span className="userNum">{userPoints}</span>
         </p>
         <p>
           <strong>Lives: </strong>
-          {userLives}
+          <span className="userNum">{userLives}</span>
         </p>
       </div>
 
-      <div className="question-box text-white m-3.5 text-start">
+      <div className="question-box text-white m-3.5 text-start poppins-light">
         <p>{questionList[currentQuestionIndex].question}</p>
         <ul className="mt-4">
           {questionList[currentQuestionIndex].options.map((option, index) => (
@@ -232,7 +227,7 @@ const QuizComponent = ({
               key={index}
               onClick={() => handleOptionClick(option)}
               className={`option-item cursor-pointer p-2 mb-2 rounded ${
-                selectedAnswer === option ? 'bg-blue-500' : 'bg-gray-700'
+                selectedAnswer === option ? 'bg-blue-500' : 'bg-blue-400'
               }`}>
               {option}
             </li>
@@ -241,8 +236,8 @@ const QuizComponent = ({
       </div>
 
       <div className="feedback-box mt-4">
-        <p>Time Remaining: {timer}s</p>
-        {answerStatus && <p>{answerStatus}</p>}
+        <p style={{ color: '#dbeef3' }}>Time Remaining: {timer}s</p>
+        {!answerStatus && <p>{answerStatus}</p>}
       </div>
 
       <div className="controls mt-4">

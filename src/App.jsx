@@ -11,18 +11,28 @@ const App = () => {
   const [userLives, setUserLives] = useState(3);
 
   return (
-    <div className="container bg-gray-600 mx-auto text-center h-screen w-screen overflow-hidden flex justify-center items-center">
+    <div className="container mx-auto text-center h-screen w-screen overflow-hidden flex justify-center items-center">
       {!startGame ? (
         <div className="chat-box">
-          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl text-white mb-2.5">
+          <h2
+            style={{ color: '#2d8a9b' }}
+            className="text-3xl limelight-regular sm:text-4xl md:text-4xl lg:text-6xl mb-2.5">
             Want to Play a Game?
           </h2>
-          <div className="details-box text-white m-3.5">
-            <small>
+          <div className="details-box m-3.5 poppins-light">
+            <p style={{ color: '#dbeef3' }}>
               This game is created by{' '}
-              <span className="font-black">Mark The Great</span> and will test
-              your thinking abilities.
-            </small>
+              <span style={{ color: '#2d8a9b' }} className="font-black">
+                <a
+                  href="https://markallen-lab.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Mark Davis
+                </a>
+              </span>{' '}
+              and will test your thinking abilities. 20 Of the most difficult
+              random questions.
+            </p>
           </div>
           <div className="button_wrapper flex flex-wrap items-center justify-center">
             <Yes_button onClick={() => setStartGame(true)} />
